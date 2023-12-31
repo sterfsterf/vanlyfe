@@ -1,10 +1,15 @@
-// day handlers
+
+//->time_handler
+->foodtime_handler
+
+// day/time handlers
 VAR day = 0
-LIST time_of_day = morning, (noon), evening, night
+LIST time_of_day = morning, (afternoon), evening, night
+LIST day_of_week = Monday, Tuesday, Wednesday, Thursday, Friday, (Saturday), Sunday
 
 // player vars
 LIST food = (beans), (ramen), (tomato_soup), (noodle_soup), (hot_dog), (cereal)
-LIST coffee = full
+VAR coffee = 20
 VAR hunger = 0
 VAR shower = 0
 VAR laundry = 0
@@ -27,11 +32,7 @@ VAR starving = false
 VAR low_maintenance = false
 VAR bougie = false
 
-->foodtime_handler
-
-=== time_handler ===
-hi there nerd
-
+//functions
 == function name(item)
 {item:
 - beans: beans
@@ -42,9 +43,25 @@ hi there nerd
 - else: {item}
 }
 
+=== time_handler ===
+{time_of_day == night: 
+    ~ time_of_day = morning
+    ~ day ++
+- else: 
+    ~ time_of_day ++
+}
+
+<b>Day {day} <br><>
+<b>It's {day_of_week} {time_of_day} 
+
+-> foodtime_handler
+
+
+
+
 === foodtime_handler ===
 {time_of_day == morning: Nora: What's for breakfast?}
-{time_of_day == noon: Nora: What's for lunch?}
+{time_of_day == afternoon: Nora: What's for lunch?}
 {time_of_day == evening: Nora: What's for dinner?}
 {time_of_day == night: Nora: ...dessert?}
 
@@ -59,6 +76,11 @@ hi there nerd
 
 // if there's any left to print, loop to print the next one
 { toprint: -> top }
+
++ {coffee > 0} [Coffee]
+~ coffee --
+//TODO - back to the loop
+-> time_handler
 
 + [Skip Meal]
 -    {hunger > 0:
@@ -80,7 +102,7 @@ hi there nerd
 -    else:
     Nora: No. Gotta eat something.
     -> foodtime_handler
-    
+//TODO - back to the loop   
 -> DONE
 
 = option(food_from_list)
@@ -94,7 +116,7 @@ hi there nerd
     -   {time_of_day == morning: 
         Narrator: You wake up and the sun is shining through the windshield into your eyes
         }
-    -   {time_of_day == noon: 
+    -   {time_of_day == afternoon: 
         Narrator: You wake up to the dusty heat of the van.
         }        
     -   {time_of_day == evening: 
@@ -104,24 +126,34 @@ hi there nerd
         Narrator: You wake up to a chill. its dark all around you.  
         }
     Narrator: You need to find something to eat before you pass out again.
-        
+    
+//TODO    
+        ->time_handler
         
 === choose(food_from_list) ===
 {food_from_list == beans: 
 Narrator: You snap open the can of beans and scoop them into your mouth cold. 
 Nora: Damn I love them beans
 ~ food -= beans
+~ hunger --
 }
 {food_from_list == tomato_soup: 
 Narrator: The hob clicks on in an instant
 Narrator: You scrape your short fingernails under the pull tab and snap open the can of tomato soup. 
 Nora: If only I has some grilled cheese to go with....
 ~food -= tomato_soup
+~ hunger --
 }
 
 {food_from_list == ramen: 
 Narrator: You pull the brick of noodles out of the wrapper and plop it into the bubbling water. 
-Narrator: Your 
+Nora: YUM!
+~food -= ramen
+~ hunger --
 }
+
+->time_handler
+
+
 
     -> END
