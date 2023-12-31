@@ -8,8 +8,8 @@ LIST time_of_day = morning, (afternoon), evening, night
 LIST day_of_week = end_of_week, Monday, Tuesday, Wednesday, Thursday, Friday, (Saturday), Sunday 
 
 // player vars
-LIST food = (beans), (ramen), (tomato_soup), (noodle_soup), (hot_dog), (cereal)
-VAR coffee = 20
+LIST food = beans, ramen, (tomato_soup), noodle_soup, hot_dog, cereal
+VAR coffee = 2
 VAR hunger = 0
 VAR shower = 0
 VAR laundry = 0
@@ -33,16 +33,20 @@ VAR low_maintenance = false
 VAR bougie = false
 
 //functions
+
+//user friendly names database
 == function name(item)
+
 {item:
-- beans: beans
-- tomato_soup: tomato soup
-- noodle_soup: noodle soup
-- hot_dog: hot dog 
-- cereal: cereal
+- beans: Beans
+- tomato_soup: Tomato soup
+- noodle_soup: Noodle soup
+- hot_dog: Hot dog 
+- cereal: Cereal
 - else: {item}
 }
 
+//this increments the time of day each time you hit this. It also handles counting the days and looping through the days of week.
 === time_handler ===
 
 {day_of_week == Sunday && time_of_day == night:
@@ -61,8 +65,6 @@ VAR bougie = false
 <b>It's {day_of_week} {time_of_day} 
 
 -> foodtime_handler
-
-
 
 
 === foodtime_handler ===
@@ -89,31 +91,39 @@ VAR bougie = false
 -> time_handler
 
 + [Skip Meal]
--    {hunger > 0:
+-    {hunger <= 0:
     Nora: I'm not hungry
-    }
     ~ hunger ++
+    -> time_handler
+    }
 -    {hunger == 1:
     Nora: I'm not in the mood
-    }
     ~ hunger ++
+    -> time_handler
+    }
 -    {hunger == 2:
     Nora: I'm hungry, but best to conserve food
-    }
     ~ hunger ++    
+    -> time_handler
+    }
 -    {hunger == 3:
     Nora: I'm starving. I can skip this meal, but I'll have to eat soon.
-    }
     ~ hunger ++    
--    else:
-    Nora: No. Gotta eat something.
+    -> time_handler
+    }
+- {hunger >=4 && (LIST_COUNT(food) > 0 or coffee > 0):
+    Nora: Nope. Gotta eat something.
     -> foodtime_handler
-//TODO - back to the loop   
--> DONE
+    }
+- {hunger >=4 && (LIST_COUNT(food) <= 0 or coffee <= 0):
+    Narrator: You think about skipping, but you are <i>so</i> hungry 
+    -> no_food
+    }
 
 = option(food_from_list)
 + [{name(food_from_list)}] -> choose(food_from_list)
 
+=== no_food ===
 + ->
     Narrator: You scrounge through the cupboards but there is nothing to eat.
     
