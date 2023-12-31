@@ -5,7 +5,7 @@
 // day/time handlers
 VAR day = 0
 LIST time_of_day = morning, (afternoon), evening, night
-LIST day_of_week = Monday, Tuesday, Wednesday, Thursday, Friday, (Saturday), Sunday
+LIST day_of_week = end_of_week, Monday, Tuesday, Wednesday, Thursday, Friday, (Saturday), Sunday 
 
 // player vars
 LIST food = (beans), (ramen), (tomato_soup), (noodle_soup), (hot_dog), (cereal)
@@ -44,9 +44,15 @@ VAR bougie = false
 }
 
 === time_handler ===
+
+{day_of_week == Sunday && time_of_day == night:
+~ day_of_week = end_of_week
+}
+
 {time_of_day == night: 
     ~ time_of_day = morning
     ~ day ++
+    ~ day_of_week ++
 - else: 
     ~ time_of_day ++
 }
