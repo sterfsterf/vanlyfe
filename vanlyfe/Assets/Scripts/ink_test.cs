@@ -56,8 +56,6 @@ public class ink_test : MonoBehaviour
         storyText.text = text;
         storyText.transform.SetParent(this.transform, false);
 
-        Debug.Log(loadStoryChunk());
-
         foreach (Choice choice in story.currentChoices)
         {
             Button choiceButton = Instantiate(buttonPrefab) as Button;
@@ -78,13 +76,18 @@ public class ink_test : MonoBehaviour
         
     }
 
+    public void onClick()
+    {
+        loadStoryChunk();
+    }
+
     string loadStoryChunk()
     {
         string text = "";
 
         if(story.canContinue)
         {
-        text = story.ContinueMaximally();
+        text = story.Continue();
       
         }
 

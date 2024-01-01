@@ -1,6 +1,6 @@
 // ================ debug menu ================
 
-<shake>❀❀❀Debug Menu❀❀❀</shake> 
+<jiggle>❀❀❀Debug Menu❀❀❀</jiggle> 
 //->time_handler
 //->foodtime_handler
 -> start
