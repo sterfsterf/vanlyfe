@@ -1,9 +1,9 @@
 // ================ debug menu ================
 
 
-->time_handler
+//->time_handler
 //->foodtime_handler
-//-> start
+-> start
 
 // ================ vars ================
 
@@ -44,20 +44,24 @@ VAR has_kitty = false
 VAR kitty_name = "Hugo"
 
 // van vars
-VAR van_gas = 0
-VAR van_power = 0
-VAR van_water = 0
-VAR van_greywater = 0 //when this hits 0, reset to 20 
-VAR van_trash = 0
-VAR van_dirty = 0
+VAR van_gas = 0 // gallons
+VAR van_max_gas = 25 // gallons
+VAR van_power = 0 // amp hours
+VAR van_max_power = 100 // amp hours
+VAR van_water = 0 // gallons
+VAR van_max_water = 30 // gallons
+VAR van_greywater = 0 // gallons
+VAR van_max_greywater = 20 // gallons
+VAR van_propane = 0 //lbs
+VAR van_max_propane = 18 //lbs
+VAR van_trash = 0 // gallons
+VAR van_max_trash = 10 // this can overcap, but when it does the van gains dirtiness
+VAR van_dirty = 0 // 0 is clean, over 10 is filthy
+VAR van_last_oil_change = 65001
+VAR van_next_oil_change = 68001
+VAR van_miles = 65007
+VAR van_solar = 100 //watts
 
-//habits vars
-VAR filthy = false
-VAR clean = false
-VAR foodie = false
-VAR starving = false
-VAR low_maintenance = false
-VAR bougie = false
 
 // ================ functions ================
 
@@ -145,7 +149,18 @@ You smell like old meat and rancid milk.
     -> tidy_handler
 + {showered_already == false} [Let's wash up]
     -> shower_handler
++ [Let's hit the road]
+    -> roadtrip_handler
++ [Let's explore]
+    -> explore_handler
     
+=== roadtrip_handler ===
+//put roadtrip stuff there
+->DONE
+
+=== explore_handler ===
+// put explore stuff here 
+->DONE
     
 === shower_handler ===
 Nora: Time to get clean, but lets check on the water first
@@ -326,7 +341,70 @@ Nora: YUM!
 === start ===
 Mom: Do you really have to go, Nora?
 
-Nora: C'mon Mom, we already built the whole van. Can't back out now.
+Nora: C'mon Mom, I already built out the whole van. Can't back out now.
+
+Mom: Excuse me don't you mean WE already built out the whole van?
+
+Nora: Sure. 
+Nora: Yes
+Nora: Thank You Mom.
+Nora: But either way its built. 
+
+Narrator: Your mom smiles and wraps you in a big hug.
+
+Mom: You know you can call me any time, yea?
+
+Nora: Yea I know. 
+
+Mom: I made you a little card for the van so you can remember everything you need to know. 
+-> van_reference_card
+
+=== van_reference_card ===
+
+Narrator: She hands you an index card, every space intricately packed with your mom's small, neat handwriting. Each line in smallcaps is pairs with all lowercase lines, and every spare space, littered with tiny hand-drawn flowers.
+
+<b>❀ 1978 JORD WAYFARER VAN ❀</b>
+
+4 Cylinder 2.0 Liter Engine <br> ❀❀❀ vroom vroom! ❀❀❀
+{van_max_gas} Gallon Gas Tank <br> ❀❀❀ get gas when you can when you're out in the middle of nowhere ❀❀❀
+{van_max_water} Gallon Freshwater Tank <br> ❀❀❀ you'll use ~2 gallons / day for drinking & washing ❀❀❀
+{van_max_greywater} Gallon Greywater Tank <br> ❀❀❀ any water that goes down the drain end up here ❀❀❀
+{van_max_trash} Gallon Trash Can <br> ❀❀❀ take out the trash girl! ❀❀❀
+{van_solar} Watt Solar Panel <br> ❀❀❀ can generate ~8 amps / hour when its sunny and maybe half that when its cloudy ❀❀❀
+{van_max_power} Amp Hour 12V Battery for Onboard Electric <br> ❀❀❀ see back for details! ❀❀❀
+
+Last Oil Change at {van_last_oil_change} Miles <br> Next Oil Change at {van_next_oil_change} Miles <br> ❀❀❀ don't forget to get your oil changed! keep that engine running great! ❀❀❀
+
++ [Flip Card]
+    Narrator: You flip the laminated index card over in your hands.
+    -> van_reference_card_back
++ [Put Card Away]
+    Narrator: You tuck the card away 
+    -> mom_gives_toolbox
+
+=== van_reference_card_back ===
+<b>❀ Equipment thats Draws Power ❀</b>
+2 cubic ft Mini fridge - 5 amps / hr <br> ❀❀❀ runs about 1/3 of the time so ~40 amp hrs / day ❀❀❀
+LED overhead strip lights - 1 amp / hr <br> ❀❀❀ keep on only in the evening so ~4 amp hrs / day ❀❀❀
+2 110v outlets - it depends what you plug in :) <br> ❀❀❀ you should be able to keep your phone / laptop / camera charged for   ~8 amp hrs / day ❀❀❀
+Water Pump - 8 amps / hr <br> ❀❀❀ you probably only use this ~1 hr/day tho ❀❀❀
+
+❀❀❀ Total Average Power Used per Day ❀❀❀ <br> 60 amps / day <br> (i know math isn't your strong suit ;P)
+
+<b>❀ Other Equipment ❀</b>
+Back door showerhead - uses ~4 gallons for a quick shower. <br> ❀❀❀ water goes quick! be careful! remember this doesn't drain into your greywater tank, please be considerate of where you use it! ❀❀❀
+
++ [Flip Card]
+    Narrator: You flip the laminated index card over in your hands.
+    -> van_reference_card
++ [Put Card Away]
+    Narrator: You tuck the card away 
+    -> mom_gives_toolbox
+
+=== mom_gives_toolbox ===
+* [Wow that's a lot of info!]
+* [Yea, yea, yea I know!]
+* [Thanks mom!]
 
 
     -> END
