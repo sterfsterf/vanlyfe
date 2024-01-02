@@ -12,6 +12,7 @@ public class ink_test : MonoBehaviour
     private Story story;
     public TMPro.TMP_Text textPrefab;
     public Button buttonPrefab;
+    public GameObject onClickContinue;
 
 
     // Start is called before the first frame update
@@ -45,6 +46,7 @@ public class ink_test : MonoBehaviour
         TMPro.TMP_Text storyText = Instantiate(textPrefab) as TMPro.TMP_Text;
         
         string text = loadStoryChunk();
+
         
         List<string> tags = story.currentTags;
 
@@ -55,6 +57,7 @@ public class ink_test : MonoBehaviour
 
         storyText.text = text;
         storyText.transform.SetParent(this.transform, false);
+
 
         foreach (Choice choice in story.currentChoices)
         {
@@ -76,9 +79,10 @@ public class ink_test : MonoBehaviour
         
     }
 
-    public void onClick()
+    public void clickContinue()
     {
-        loadStoryChunk();
+                refreshUI();
+
     }
 
     string loadStoryChunk()

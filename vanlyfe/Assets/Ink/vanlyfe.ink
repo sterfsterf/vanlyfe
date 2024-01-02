@@ -1,9 +1,18 @@
 // ================ debug menu ================
+-> debug
 
-<jiggle>❀❀❀Debug Menu❀❀❀</jiggle> 
+=== debug ===
+<jiggle>❀❀❀Debug Menu❀❀❀</jiggle> #TheMenuOfDeBugs
++ [loop debug menu]
+    ->debug
++ [loop2 debug menu]
+    ->debug
++ [loop3 debug menu]
+    ->debug
 //->time_handler
 //->foodtime_handler
--> start
+* [Start]
+    -> start
 
 // ================ vars ================
 
@@ -339,24 +348,24 @@ Nora: YUM!
 // ================ start story here ================
 
 === start ===
-Mom: Do you really have to go, Nora? #Mom
+Mom: Do you really have to go, Nora? 
 
-Nora: C'mon Mom, I already built out the whole van. Can't back out now. #Nora
+Nora: C'mon Mom, I already built out the whole van. Can't back out now. 
 
-Mom: Excuse me don't you mean WE already built out the whole van? #Mom
+Mom: Excuse me don't you mean WE already built out the whole van? 
 
-Nora: Sure. #Nora
-Nora: Yes #Nora
-Nora: Thank You Mom. #Nora
-Nora: But either way its built. #Nora
+Nora: Sure. 
+Nora: Yes 
+Nora: Thank You Mom. 
+Nora: But either way its built. 
 
-Narrator: Your mom smiles and wraps you in a big hug. #Narrator
+Narrator: Your mom smiles and wraps you in a big hug.
 
-Mom: You know you can call me any time, yea? #Mom
+Mom: You know you can call me any time, yea? 
 
 Nora: Yea I know. 
 
-Mom: I made you a little card for the van so you can remember everything you need to know. #Mom
+Mom: I made you a little card for the van so you can remember everything you need to know. 
 + [Take Card]
 Narrator: She hands you an index card, every space intricately packed with your mom's small, neat handwriting. Each line in smallcaps is pairs with all lowercase lines, and every spare space, littered with tiny hand-drawn flowers.
 -> van_reference_card
