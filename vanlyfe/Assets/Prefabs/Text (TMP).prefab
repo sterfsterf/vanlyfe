@@ -163,7 +163,7 @@ MonoBehaviour:
   styleSheet: {fileID: 0}
   databaseActions: {fileID: 11400000, guid: 854f4126ff7134ac6ba55d387d700c6b, type: 2}
   defaultAppearancesTags:
-  - fade
+  - rot a=0.5 d=0.2
   defaultDisappearancesTags:
   - fade
   defaultBehaviorsTags: []
@@ -203,10 +203,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   waitForNormalChars: 0.02
-  waitLong: 0.6
-  waitMiddle: 0.2
-  avoidMultiplePunctuactionWait: 0
-  waitForNewLines: 1
+  waitLong: 0.05
+  waitMiddle: 0.05
+  avoidMultiplePunctuactionWait: 1
+  waitForNewLines: 0
   waitForLastCharacter: 1
   useTypewriterWaitForDisappearances: 1
   disappearanceWaitTime: 0.015

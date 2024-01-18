@@ -367,22 +367,20 @@ Nora: Yea I know.
 
 Mom: I made you a little card for the van so you can remember everything you need to know. 
 + [Take Card]
-Narrator: She hands you an index card, every space intricately packed with your mom's small, neat handwriting. Each line in smallcaps is pairs with all lowercase lines, and every spare space, littered with tiny hand-drawn flowers.
+Narrator: She hands you an index card, every space intricately packed with your mom's small, neat handwriting. Each line in smallcaps is paired with all lowercase lines, and every spare space, littered with tiny hand-drawn flowers.
 -> van_reference_card
 
 === van_reference_card ===
 
 <b>❀ 1978 JORD WAYFARER VAN ❀</b>
-
-4 Cylinder 2.0 Liter Engine <br> ❀❀❀ vroom vroom! ❀❀❀
-{van_max_gas} Gallon Gas Tank <br> ❀❀❀ get gas when you can when you're out in the middle of nowhere ❀❀❀
-{van_max_water} Gallon Freshwater Tank <br> ❀❀❀ you'll use ~2 gallons / day for drinking & washing ❀❀❀
-{van_max_greywater} Gallon Greywater Tank <br> ❀❀❀ any water that goes down the drain end up here ❀❀❀
+<><br><br>4 Cylinder 2.0 Liter Engine <br> ❀❀❀ vroom vroom! ❀❀❀
+<><br>{van_max_gas} Gallon Gas Tank <br> ❀❀❀ get gas when you can when you're out in the middle of nowhere ❀❀❀
+<><br>{van_max_water} Gallon Freshwater Tank <br> ❀❀❀ you'll use ~2 gallons / day for drinking & washing ❀❀❀
+<><br>{van_max_greywater} Gallon Greywater Tank <br> ❀❀❀ any water that goes down the drain end up here ❀❀❀
 {van_max_trash} Gallon Trash Can <br> ❀❀❀ take out the trash girl! ❀❀❀
-{van_solar} Watt Solar Panel <br> ❀❀❀ can generate ~8 amps / hour when its sunny and maybe half that when its cloudy ❀❀❀
-{van_max_power} Amp Hour 12V Battery for Onboard Electric <br> ❀❀❀ see back for details! ❀❀❀
-
-Last Oil Change at {van_last_oil_change} Miles <br> Next Oil Change at {van_next_oil_change} Miles <br> ❀❀❀ don't forget to get your oil changed! keep that engine running great! ❀❀❀
+<><br>{van_solar} Watt Solar Panel <br> ❀❀❀ can generate ~8 amps / hour when its sunny and maybe half that when its cloudy ❀❀❀
+<><br>{van_max_power} Amp Hour 12V Battery for Onboard Electric <br> ❀❀❀ see back for details! ❀❀❀
+<><br><br>Last Oil Change at {van_last_oil_change} Miles <br> Next Oil Change at {van_next_oil_change} Miles <br> ❀❀❀ don't forget to get your oil changed! keep that engine running great! ❀❀❀
 
 + [Flip Card]
     Narrator: You flip the laminated index card over in your hands.
@@ -393,14 +391,12 @@ Last Oil Change at {van_last_oil_change} Miles <br> Next Oil Change at {van_next
 
 === van_reference_card_back ===
 <b>❀ Equipment thats Draws Power ❀</b>
-2 cubic ft Mini fridge - 5 amps / hr <br> ❀❀❀ runs about 1/3 of the time so ~40 amp hrs / day ❀❀❀
-LED overhead strip lights - 1 amp / hr <br> ❀❀❀ keep on only in the evening so ~4 amp hrs / day ❀❀❀
-2 110v outlets - it depends what you plug in :) <br> ❀❀❀ you should be able to keep your phone / laptop / camera charged for   ~8 amp hrs / day ❀❀❀
+<><br>2 cubic ft Mini fridge - 5 amps / hr <br> ❀❀❀ runs about 1/3 of the time so ~40 amp hrs / day ❀❀❀
+<><br>LED overhead strip lights - 1 amp / hr <br> ❀❀❀ keep on only in the evening so ~4 amp hrs / day ❀❀❀
+<><br>2 110v outlets - it depends what you plug in :) <br> ❀❀❀ you should be able to keep your phone / laptop / camera charged for   ~8 amp hrs / day ❀❀❀
 Water Pump - 8 amps / hr <br> ❀❀❀ you probably only use this ~1 hr/day tho ❀❀❀
-
-❀❀❀ Total Average Power Used per Day ❀❀❀ <br> 60 amps / day <br> (i know math isn't your strong suit ;P)
-
-<b>❀ Other Equipment ❀</b>
+<><br>❀❀❀ Total Average Power Used per Day ❀❀❀ <br> 60 amps / day <br> (i know math isn't your strong suit ;P)
+<><br><br><b>❀ Other Equipment ❀</b>
 Back door showerhead - uses ~4 gallons for a quick shower. <br> ❀❀❀ water goes quick! be careful! remember this doesn't drain into your greywater tank, please be considerate of where you use it! ❀❀❀
 
 + [Flip Card]

@@ -41,9 +41,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets/Ink/Demos/Basic Demo/Scripts/Editor/BasicInkExampleEditor.cs" />
+     <Compile Include="Assets/DeepVoice/Editor/Scripts/DeepVoiceEditor.cs" />
+     <Compile Include="Assets/DeepVoice/Editor/Scripts/WaveUtils.cs" />
      <Compile Include="Assets/Vortex Game Studios/Dithering Filter/Editor/DitherFilterEditor.cs" />
      <Compile Include="Assets/Vortex Game Studios/SGB Filter/Editor/SGBFilterEditor.cs" />
      <Compile Include="Assets/Vortex Game Studios/Common/Editor/VortexMenu.cs" />
+     <Compile Include="Assets/DeepVoice/Editor/Scripts/FoldOuts.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2022.3.2f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
